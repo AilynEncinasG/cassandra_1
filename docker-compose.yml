@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  cassandra-server:
+    image: cassandra:3.11
+    container_name: cassandra-isi
+    networks:
+      - cassandra-net
+    ports:
+      - "9042:9042" # Puerto para conexión externa (DevCenter/DBeaver)
+    environment:
+      - CASSANDRA_CLUSTER_NAME=MiClusterUniversitario
+    volumes:
+      - ./data:/var/lib/cassandra # Persistencia: los datos se guardan en tu carpeta local
+
+networks:
+  cassandra-net:
+    driver: bridge
