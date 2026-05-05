@@ -7,11 +7,11 @@ services:
     networks:
       - cassandra-net
     ports:
-      - "9042:9042" # Puerto para conexión externa (DevCenter/DBeaver)
+      - "9042:9042" 
     environment:
       - CASSANDRA_CLUSTER_NAME=MiClusterUniversitario
     volumes:
-      - ./data:/var/lib/cassandra # Persistencia: los datos se guardan en tu carpeta local
+      - ./data:/var/lib/cassandra
 
 networks:
   cassandra-net:
